@@ -6,5 +6,9 @@ import {Component} from 'angular2/core';
 })
 export class AppComponent {
 
-    private name:string = "hola toledo!";
+    private name:string = this.hola("toledo");
+
+    hola(city:string) {
+        return "hola " + name;
+    }
 }
