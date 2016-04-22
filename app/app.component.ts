@@ -2,10 +2,7 @@ import {Component, OnInit} from 'angular2/core';
 
 @Component({
     selector: 'my-app',
-    template: `
-                {{option.votes}}
-                <h1>{{option.name}}</h1>
-                <h2>{{option.description}}</h2>`
+    templateUrl: 'vote.html',
 })
 export class AppComponent {
 
