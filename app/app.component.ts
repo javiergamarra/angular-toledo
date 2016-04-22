@@ -2,19 +2,19 @@ import {Component, OnInit} from 'angular2/core';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>{{name}}</h1>'
+    template: '<h1>{{option.name}}</h1><h2>{{option.description}}</h2>'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-    private name:string;
+    private option:Option = {
+        name: 'toledo is awesome',
+        description: 'because marzipan',
+        votes: 20
+    };
+}
 
-    ngOnInit():any {
-        this.greet();
-    }
-
-    greet() {
-        setInterval(() => {
-            this.name = '' + Math.random();
-        }, 500);
-    }
+interface Option {
+    name:String;
+    description:String;
+    votes:Number;
 }
