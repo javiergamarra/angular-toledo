@@ -1,3 +1,5 @@
-Votes: {{option.votes}}
-<h1>{{option.name}}</h1>
-<h2>{{option.description}}</h2>
+<div *ngFor="#option of options">
+    Votes: {{option.votes}}
+    <h1>{{option.name}}</h1>
+    <h2>{{option.description}}</h2>
+</div>

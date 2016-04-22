@@ -6,7 +6,10 @@ import {Component, OnInit} from 'angular2/core';
 })
 export class AppComponent {
 
-    private option:Option = new Option('toledo is awesome', 'because marzipan', 20)
+    private options:Option[] = [
+        new Option('toledo is awesome', 'because marzipan', 20),
+        new Option('valladolid is cool', 'because lechazo', 20)
+    ]
 }
 
 class Option {
