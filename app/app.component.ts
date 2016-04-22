@@ -10,13 +10,7 @@ export class AppComponent {
 }
 
 class Option {
-    name:String;
-    description:String;
-    votes:Number;
 
-    constructor(name, desc, votes) {
-        this.name = name;
-        this.description = desc;
-        this.votes = votes;
+    constructor(public name, public description, public votes = 0) {
     }
 }
