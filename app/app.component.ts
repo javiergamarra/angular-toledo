@@ -13,8 +13,14 @@ export class AppComponent {
     };
 }
 
-interface Option {
+class Option {
     name:String;
     description:String;
     votes:Number;
+
+    constructor(name, desc, votes) {
+        this.name = name;
+        this.description = desc;
+        this.votes = votes;
+    }
 }
