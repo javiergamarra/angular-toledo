@@ -9,7 +9,11 @@ export class AppComponent {
     private options:Option[] = [
         new Option('toledo is awesome', 'because marzipan', 10),
         new Option('valladolid is cool', 'because lechazo')
-    ]
+    ];
+
+    onClickMe($event) {
+        console.log($event);
+    }
 }
 
 class Option {
