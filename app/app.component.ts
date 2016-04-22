@@ -6,11 +6,7 @@ import {Component, OnInit} from 'angular2/core';
 })
 export class AppComponent {
 
-    private option:Option = {
-        name: 'toledo is awesome',
-        description: 'because marzipan',
-        votes: 20
-    };
+    private option:Option = new Option('toledo is awesome', 'because marzipan', 20)
 }
 
 class Option {
