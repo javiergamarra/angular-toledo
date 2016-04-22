@@ -1,14 +1,20 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 
 @Component({
     selector: 'my-app',
-    template: '<h1 [textContent]="name"></h1>'
+    template: '<h1>{{name}}</h1>'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-    private name:string = this.hola("toledo");
+    private name:string;
 
-    hola(city:string) {
-        return "hola " + name;
+    ngOnInit():any {
+        this.greet();
+    }
+
+    greet() {
+        setInterval(() => {
+            this.name = '' + Math.random();
+        }, 500);
     }
 }
