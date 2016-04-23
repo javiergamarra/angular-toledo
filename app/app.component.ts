@@ -1,18 +1,21 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, Inject, Injectable} from 'angular2/core';
 import {Option} from "./Option";
 import {OptionComponent} from "./option.component";
+import {OptionsService} from "./OptionsService";
 
 @Component({
     selector: 'my-app',
     templateUrl: 'options.html',
-    directives: [OptionComponent]
+    directives: [OptionComponent],
+    providers: [OptionsService]
 })
 export class AppComponent {
 
-    private options:Option[] = [
-        new Option('toledo is awesome', 'because marzipan', 10),
-        new Option('valladolid is cool', 'because lechazo')
-    ];
+    private options:Option[];
+
+    constructor(private optionsService:OptionsService) {
+        this.options = optionsService.getOptions();
+    }
 
     onKey(name) {
         this.options.push(new Option(name));
