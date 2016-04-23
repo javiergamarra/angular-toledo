@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter} from "angular2/core";
 import {Option} from "./Option";
+import {OptionsService} from "./OptionsService";
 
 @Component({
     selector: 'vote',
@@ -11,12 +12,17 @@ import {Option} from "./Option";
 })
 export class OptionComponent {
 
+    constructor(private optionsService:OptionsService) {
+
+    }
+
     @Output()
-    optionVoted = new EventEmitter<String>();
+    optionVoted = new EventEmitter<Option>();
 
     onClickMe($event) {
         this.option.votes++;
         this.optionVoted.emit(this.option);
+        this.optionsService.updateOption(this.option);
     }
 
     @Input()

@@ -22,7 +22,9 @@ export class AppComponent {
     }
 
     onKey(name) {
-        this.options.push(new Option(name));
+        let option = new Option(name);
+        this.options.push(option);
+        this.optionsService.addOption(option)
     }
 
     optionVoted($event) {
