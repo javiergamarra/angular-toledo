@@ -1,4 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
+import {Option} from "./Option";
 
 @Component({
     selector: 'my-app',
@@ -19,13 +20,3 @@ export class AppComponent {
         console.log(name);
     }
 }
-
-class Option {
-
-    private status:OptionStatus;
-
-    constructor(public name, public description?, public votes = 0) {
-    }
-}
-
-enum OptionStatus { Abandoned, Active }
