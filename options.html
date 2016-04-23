@@ -1,0 +1,6 @@
+<div *ngFor="#option of options">
+    <vote [option]="option"></vote>
+</div>
+
+<h3>New Option</h3>
+<input (keyup.enter)="onKey(name.value)" #name>

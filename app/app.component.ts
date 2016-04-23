@@ -1,9 +1,11 @@
 import {Component, OnInit} from 'angular2/core';
 import {Option} from "./Option";
+import {OptionComponent} from "./option.component";
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'app/databindings.html',
+    templateUrl: 'options.html',
+    directives: [OptionComponent]
 })
 export class AppComponent {
 
@@ -12,34 +14,8 @@ export class AppComponent {
         new Option('valladolid is cool', 'because lechazo')
     ];
 
-    onClickMe($event) {
-        console.log($event);
-    }
-
     onKey(name) {
         this.options.push(new Option(name));
     }
 
-
-    constructor() {
-        this.property = 'empty';
-        this.event = 'empty';
-        this.twoway = 'empty';
-    }
-
-    property:string;
-    event:string;
-    twoway:string;
-
-    newEvent($event) {
-        console.log($event);
-        this.event = $event;
-    }
-
-    change() {
-        let random = Math.random();
-        this.property = '' + random;
-        this.event = '' + random;
-        this.twoway = '' + random;
-    }
 }
