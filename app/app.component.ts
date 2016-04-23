@@ -15,8 +15,8 @@ export class AppComponent {
         console.log($event);
     }
 
-    onKey($event) {
-        console.log($event);
+    onKey(name) {
+        console.log(name);
     }
 }
 
