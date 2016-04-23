@@ -14,11 +14,25 @@ export class AppComponent {
     private options;
 
     constructor(private optionsService:OptionsService) {
-        optionsService.getOptions().subscribe(
-            opts => {
-                this.options = opts.json();
-            }
-        );
+        optionsService.getOptions()
+            .map(body => {
+                    return body.json();
+                }
+            )
+            .map(arr => {
+                return arr.sort((a, b) => {
+                        return b && parseInt(a.votes) < parseInt(b.votes)
+                    }
+                )
+            })
+            .subscribe(
+                opts => {
+                    console.log(opts);
+                    this.options = opts;
+                }, err => {
+                    console.log(err)
+                }
+            );
     }
 
     onKey(name) {
