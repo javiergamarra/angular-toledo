@@ -26,12 +26,16 @@ export class OptionsService {
     }
 
     addOption(option:Option) {
-        this.http.post('http://liferay.io/voting/votes', JSON.stringify(option),
-            {headers: {'Content-Type': 'application/json; charset=UTF-8'}}).subscribe(x => console.log(x.text()));
+        return this.http.post('http://liferay.io/voting/votes', JSON.stringify(option),
+            {headers: {'Content-Type': 'application/json; charset=UTF-8'}});
     }
 
     updateOption(option:Option) {
-        this.http.put('http://liferay.io/voting/votes', JSON.stringify(option),
-            {headers: {'Content-Type': 'application/json; charset=UTF-8'}}).subscribe(x => console.log(x.text()));
+        return this.http.put('http://liferay.io/voting/votes', JSON.stringify(option),
+            {headers: {'Content-Type': 'application/json; charset=UTF-8'}});
+    }
+
+    deleteOption(option:Option) {
+        return this.http.delete('http://liferay.io/voting/votes/' + option.id);
     }
 }

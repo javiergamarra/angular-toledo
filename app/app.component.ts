@@ -14,7 +14,11 @@ export class AppComponent {
     private options;
 
     constructor(private optionsService:OptionsService) {
-        optionsService.getOptions()
+        this.getOptions();
+    }
+
+    private getOptions() {
+        this.optionsService.getOptions()
             .map(body => {
                     return body.json();
                 }
@@ -37,12 +41,13 @@ export class AppComponent {
 
     onKey(name) {
         let option = new Option(name);
-        this.options.push(option);
-        this.optionsService.addOption(option)
+        this.optionsService.addOption(option).subscribe(x => {
+            this.getOptions();
+        })
     }
 
-    optionVoted($event) {
-        console.log($event);
+    optionDeleted($event) {
+        this.getOptions();
     }
 
 }
