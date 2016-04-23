@@ -11,10 +11,14 @@ import {OptionsService} from "./OptionsService";
 })
 export class AppComponent {
 
-    private options:Option[];
+    private options;
 
     constructor(private optionsService:OptionsService) {
-        this.options = optionsService.getOptions();
+        optionsService.getOptions().subscribe(
+            opts => {
+                this.options = opts.json();
+            }
+        );
     }
 
     onKey(name) {
