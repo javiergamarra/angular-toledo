@@ -14,6 +14,10 @@ export class AppComponent {
     onClickMe($event) {
         console.log($event);
     }
+
+    onKey($event) {
+        console.log($event);
+    }
 }
 
 class Option {
