@@ -4,11 +4,7 @@ import {OptionsService} from "./OptionsService";
 
 @Component({
     selector: 'vote',
-    template: `
-    <button (click)="onClickMe($event)">Click me!</button>
-    <p *ngIf="!!option?.votes">Votes: {{option.votes}}</p>
-    <h1>{{option.name}}</h1>
-    <h2>{{option?.description}}</h2>`
+    templateUrl: 'vote.html'
 })
 export class OptionComponent {
 
@@ -17,12 +13,19 @@ export class OptionComponent {
     }
 
     @Output()
-    optionVoted = new EventEmitter<Option>();
+    optionDeleted = new EventEmitter<String>();
 
     onClickMe($event) {
         this.option.votes++;
-        this.optionVoted.emit(this.option);
-        this.optionsService.updateOption(this.option);
+        this.optionsService.updateOption(this.option).subscribe(x => console.log(x));
+    }
+
+    delete() {
+        console.log('delete');
+        this.optionsService.deleteOption(this.option)
+            .subscribe(x => {
+                this.optionDeleted.emit('deleted');
+            });
     }
 
     @Input()
