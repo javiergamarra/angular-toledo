@@ -3,7 +3,7 @@ import {Option} from "./Option";
 
 @Component({
     selector: 'vote',
-    template: `{{option.name}}
+    template: `
     <button (click)="onClickMe($event)">Click me!</button>
     <p *ngIf="!!option?.votes">Votes: {{option.votes}}</p>
     <h1>{{option.name}}</h1>
@@ -12,7 +12,7 @@ import {Option} from "./Option";
 export class OptionComponent {
 
     onClickMe($event) {
-        console.log($event);
+        this.option.votes++;
     }
 
     @Input()
