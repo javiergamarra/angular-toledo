@@ -17,6 +17,6 @@ export class AppComponent {
     }
 
     onKey(name) {
-        console.log(name);
+        this.options.push(new Option(name));
     }
 }
