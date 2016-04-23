@@ -2,11 +2,12 @@ import {Component, OnInit, Inject, Injectable} from 'angular2/core';
 import {Option} from "./Option";
 import {OptionComponent} from "./option.component";
 import {OptionsService} from "./OptionsService";
+import {SubmitComponent} from "./submit.component";
 
 @Component({
     selector: 'my-app',
     templateUrl: 'options.html',
-    directives: [OptionComponent],
+    directives: [OptionComponent, SubmitComponent],
     providers: [OptionsService]
 })
 export class AppComponent {
