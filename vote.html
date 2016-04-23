@@ -1,4 +1,5 @@
 <div *ngFor="#option of options">
+    <img [src]="option.image" />
     <button (click)="onClickMe($event)">Click me!</button>
     <p *ngIf="!!option.votes">Votes: {{option.votes}}
     <h1>{{option.name}}</h1>
