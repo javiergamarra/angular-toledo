@@ -3,7 +3,7 @@ import {Option} from "./Option";
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'vote.html',
+    templateUrl: 'app/databindings.html',
 })
 export class AppComponent {
 
@@ -18,5 +18,28 @@ export class AppComponent {
 
     onKey(name) {
         this.options.push(new Option(name));
+    }
+
+
+    constructor() {
+        this.property = 'empty';
+        this.event = 'empty';
+        this.twoway = 'empty';
+    }
+
+    property:string;
+    event:string;
+    twoway:string;
+
+    newEvent($event) {
+        console.log($event);
+        this.event = $event;
+    }
+
+    change() {
+        let random = Math.random();
+        this.property = '' + random;
+        this.event = '' + random;
+        this.twoway = '' + random;
     }
 }
