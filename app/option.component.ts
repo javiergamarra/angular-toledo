@@ -1,4 +1,4 @@
-import {Component, Input} from "angular2/core";
+import {Component, Input, Output, EventEmitter} from "angular2/core";
 import {Option} from "./Option";
 
 @Component({
@@ -11,8 +11,12 @@ import {Option} from "./Option";
 })
 export class OptionComponent {
 
+    @Output()
+    optionVoted = new EventEmitter<String>();
+
     onClickMe($event) {
         this.option.votes++;
+        this.optionVoted.emit(this.option);
     }
 
     @Input()

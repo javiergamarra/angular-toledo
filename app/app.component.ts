@@ -18,4 +18,8 @@ export class AppComponent {
         this.options.push(new Option(name));
     }
 
+    optionVoted($event) {
+        console.log($event);
+    }
+
 }

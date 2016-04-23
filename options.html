@@ -1,5 +1,5 @@
 <div *ngFor="#option of options">
-    <vote [option]="option"></vote>
+    <vote [option]="option" (optionVoted)="optionVoted($event)"></vote>
 </div>
 
 <h3>New Option</h3>
