@@ -1,20 +1,14 @@
 import {Injectable} from "angular2/core";
 import {Option} from "./Option";
-import {Http} from "angular2/http";
+import {Http, Headers} from "angular2/http";
 
 @Injectable()
 export class OptionsService {
-
-    // private options:Option[] = [
-    //     new Option('toledo is awesome', 'because marzipan', 10),
-    //     new Option('valladolid is cool', 'because lechazo')
-    // ];
-
-    // getOptions() {
-    //     return this.options;
-    // }
+    private headers;
 
     constructor(private http:Http) {
+        this.headers = new Headers();
+        this.headers.append('Content-Type', 'application/json; charset=UTF-8');
     }
 
     getOptions() {
@@ -26,13 +20,19 @@ export class OptionsService {
     }
 
     addOption(option:Option) {
-        return this.http.post('http://liferay.io/voting/votes', JSON.stringify(option),
-            {headers: {'Content-Type': 'application/json; charset=UTF-8'}});
+
+
+        return this.http.post(
+            'http://liferay.io/voting/votes',
+            JSON.stringify(option),
+            {headers: this.headers});
     }
 
     updateOption(option:Option) {
-        return this.http.put('http://liferay.io/voting/votes', JSON.stringify(option),
-            {headers: {'Content-Type': 'application/json; charset=UTF-8'}});
+        return this.http.put(
+            'http://liferay.io/voting/votes',
+            JSON.stringify(option),
+            {headers: this.headers});
     }
 
     deleteOption(option:Option) {
