@@ -1,54 +1,19 @@
-import {Component, OnInit, Inject, Injectable} from 'angular2/core';
-import {Option} from "./Option";
-import {OptionComponent} from "./option.component";
-import {OptionsService} from "./OptionsService";
 import {SubmitComponent} from "./submit.component";
+import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
+import {FORM_DIRECTIVES} from "angular2/common";
+import {Component} from "angular2/core";
+import {OptionsComponent} from "./options.component";
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'options.html',
-    directives: [OptionComponent, SubmitComponent],
-    providers: [OptionsService]
+    templateUrl: 'template.html',
+    directives: [OptionsComponent, SubmitComponent, ROUTER_DIRECTIVES, FORM_DIRECTIVES]
 })
+@RouteConfig([
+    {path: '/', name: 'List', component: OptionsComponent},
+    {path: '/submit', name: 'Submit', component: SubmitComponent},
+])
 export class AppComponent {
 
-    private options;
-
-    constructor(private optionsService:OptionsService) {
-        this.getOptions();
-    }
-
-    private getOptions() {
-        this.optionsService.getOptions()
-            .map(body => {
-                    return body.json();
-                }
-            )
-            .map(arr => {
-                return arr.sort((a, b) => {
-                        return b && parseInt(a.votes) < parseInt(b.votes)
-                    }
-                )
-            })
-            .subscribe(
-                opts => {
-                    console.log(opts);
-                    this.options = opts;
-                }, err => {
-                    console.log(err)
-                }
-            );
-    }
-
-    onKey(name) {
-        let option = new Option(name);
-        this.optionsService.addOption(option).subscribe(x => {
-            this.getOptions();
-        })
-    }
-
-    optionDeleted($event) {
-        this.getOptions();
-    }
 
 }

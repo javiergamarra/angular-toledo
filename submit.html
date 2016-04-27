@@ -1,43 +1,26 @@
-<table id="hnmain" border="0" cellpadding="0" cellspacing="0" width="85%" bgcolor="#f6f6ef">
-    <tr>
-        <td bgcolor="#ff6600">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding:2px">
-                <tr>
-                    <td style="width:18px;padding-right:4px"><a href="http://www.ycombinator.com"></a></td>
-                    <td style="line-height:12pt; height:10px;"><span class="pagetop"><b>Submit</b></span></td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr style="height:10px"></tr>
-    <tr>
-        <td>
-            <form method="post" (ngSubmit)="onSubmit()" #submitForm="ngForm">
-                <table border="0">
-                    <tr>
-                        <td>title</td>
-                        <td><input [(ngModel)]="option.title" type="text" name="title" value="" size="50"
-                                   ngControl="title" #title="ngForm" required minlength="10">
-                            <p *ngIf="title.control?.dirty && title.control?.hasError('minlength')">{{option.title}}</p>
+<form method="post" (ngSubmit)="onSubmit()" #submitForm="ngForm">
+    <table border="0">
+        <tr>
+            <td>title</td>
+            <td><input [(ngModel)]="option.title" type="text" name="title" value="" size="50"
+                       ngControl="title" #title="ngForm" required minlength="10">
+                <p *ngIf="title.control?.dirty && title.control?.hasError('minlength')">{{option.title}}</p>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>url</td>
-                        <td><input [(ngModel)]="option.description" type="text" name="description" value="" size="50"
-                                   ngControl="description" #description="ngForm"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" value="submit" [disabled]="!submitForm.form.valid"></td>
-                    </tr>
-                    <tr style="height:20px"></tr>
-                </table>
-            </form>
-        </td>
-    </tr>
-</table>
+            </td>
+        </tr>
+        <tr>
+            <td>url</td>
+            <td><input [(ngModel)]="option.description" type="text" name="description" value="" size="50"
+                       ngControl="description" #description="ngForm"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="submit" [disabled]="!submitForm.form.valid"></td>
+        </tr>
+        <tr style="height:20px"></tr>
+    </table>
+</form>
