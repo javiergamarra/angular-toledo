@@ -1,7 +1,7 @@
 .idea
-*.iml
 *.map
-app/*.js
+app/**/*.js
 
 node_modules/
 typings/
+*.log
