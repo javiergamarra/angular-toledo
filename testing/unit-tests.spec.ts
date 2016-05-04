@@ -45,7 +45,7 @@ describe('1st tests', () => {
         () => {
 
             let iterable = [3, 5, 7];
-            // iterable.foo = "hello";
+            iterable.foo = "hello";
 
             let for_props = 0;
             let for_of_props = 0;
