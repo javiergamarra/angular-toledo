@@ -2,15 +2,15 @@
     <table border="0">
         <tr>
             <td>title</td>
-            <td><input [(ngModel)]="option.name" type="text" name="title" value="" size="50"
+            <td><input [(ngModel)]="news.name" type="text" name="title" value="" size="50"
                        ngControl="name" #name="ngForm" required minlength="10">
-                <p *ngIf="name.control?.dirty && name.control?.hasError('minlength')">{{option.name}}</p>
+                <p *ngIf="name.control?.dirty && name.control?.hasError('minlength')">{{news.name}}</p>
 
             </td>
         </tr>
         <tr>
             <td>url</td>
-            <td><input [(ngModel)]="option.description" type="text" name="description" value="" size="50"
+            <td><input [(ngModel)]="news.description" type="text" name="description" value="" size="50"
                        ngControl="description" #description="ngForm"></td>
         </tr>
         <tr>
