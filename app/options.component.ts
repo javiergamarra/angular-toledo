@@ -41,13 +41,6 @@ export class OptionsComponent {
             );
     }
 
-    onKey(name) {
-        let option = new Option(name);
-        this.optionsService.addOption(option).subscribe(x => {
-            this.getOptions();
-        })
-    }
-
     optionDeleted($event) {
         this.getOptions();
     }
