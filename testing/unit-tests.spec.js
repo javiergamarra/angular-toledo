@@ -34,7 +34,7 @@ describe('1st tests', function () {
             var prop = iterable_1[_i];
             for_of_props++;
         }
-        expect(for_props).toEqual(4);
+        expect(for_props).toEqual(3);
         expect(for_of_props).toEqual(3);
     });
     it('we have sets now', function () {
