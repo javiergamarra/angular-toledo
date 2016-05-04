@@ -1,6 +1,7 @@
 .idea
 *.iml
-node_modules/*
-typings/*
 *.map
 app/*.js
+
+node_modules/
+typings/
