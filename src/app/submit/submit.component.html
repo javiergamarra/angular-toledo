@@ -1,0 +1,26 @@
+<form method="post" (ngSubmit)="onSubmit()" #submitForm="ngForm">
+  <table border="0">
+    <tr>
+      <td>title</td>
+      <td><input [(ngModel)]="news.name" name="title" value="" size="50"
+                 required minlength="10">
+        <p *ngIf="submitForm.control?.dirty && submitForm.control?.hasError('minlength')">{{news.name}}</p>
+
+      </td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td><input [(ngModel)]="news.description" name="description" value="" size="50"
+      ></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="submit" [disabled]="!submitForm.form.valid"></td>
+    </tr>
+    <tr style="height:20px"></tr>
+  </table>
+</form>
