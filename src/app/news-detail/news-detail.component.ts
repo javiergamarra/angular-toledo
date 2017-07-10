@@ -1,13 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NewsService } from './news.service';
-import { News } from './news';
+import { NewsService } from '../models/news.service';
+import { News } from '../models/news';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  selector: 'app-news-detail',
+  templateUrl: './news-detail.component.html',
 })
-export class NewsComponent implements OnInit {
+export class NewsDetailComponent implements OnInit {
 
   @Input()
   news: News;

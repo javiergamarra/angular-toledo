@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../news/news.service';
+import { NewsService } from '../models/news.service';
 
 @Component({
   selector: 'app-news-list',
@@ -8,7 +8,7 @@ import { NewsService } from '../news/news.service';
 })
 export class NewsListComponent implements OnInit {
 
-  private newslist;
+  news;
 
   ngOnInit() {
   }
@@ -22,7 +22,7 @@ export class NewsListComponent implements OnInit {
       .map(body => body.json())
       .map(arr => arr.sort((a, b) => b && parseInt(a.votes, 0) < parseInt(b.votes, 0)))
       .subscribe(
-        news => this.newslist = news,
+        news => this.news = news,
         err => console.log(err)
       );
   }

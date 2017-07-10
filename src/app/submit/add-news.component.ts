@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { News } from '../news/news';
-import { NewsService } from '../news/news.service';
+import { News } from '../models/news';
+import { NewsService } from '../models/news.service';
 
 @Component({
-  selector: 'app-submit',
-  templateUrl: './submit.component.html',
-  styleUrls: ['./submit.component.css']
+  selector: 'app-add-news',
+  templateUrl: './add-news.component.html',
 })
-export class SubmitComponent implements OnInit {
+export class AddNewsComponent implements OnInit {
 
   public news: News = new News('');
 
